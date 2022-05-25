@@ -1,6 +1,7 @@
 
 
-export const AddBlog = (req, res)=>{
+export const AddBlog = (req, res, next)=>{
+    
     res.send('add post')
     res.end();
 }

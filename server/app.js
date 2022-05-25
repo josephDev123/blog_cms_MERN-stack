@@ -2,6 +2,9 @@ import express from "express";
 import cors from "cors";
 import dotevn from 'dotenv';
 import mongoose from 'mongoose';
+
+mongoose.connect()
+
 //blog module
 import blogRouter from './routes/blogRouter.js';
 //role module
