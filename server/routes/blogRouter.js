@@ -4,7 +4,7 @@ import {AddBlog, editBlog, allPost, allPostByCategories} from '../controllers/bl
 
 const blogRouter = express.Router();
 
-blogRouter.get('/create-post', AddBlog);
+blogRouter.post('/create-post', AddBlog);
 blogRouter.get('/edit', editBlog);
 blogRouter.get('/all-post', allPost);
 blogRouter.get('/all-post/categories', allPostByCategories);
