@@ -5,17 +5,27 @@ import mongoose from 'mongoose';
 
 
 //blog module
-import blogRouter from './routes/blogRouter.js';
+import blogPostRouter from './routes/blogPostRouter.js';
 //role module
 import {roleRouter} from './routes/roleRouter.js';
 //permission module
 import {permissionRouter} from './routes/permissionRouter.js'
 //{ useNewUrlParser: true, useUnifiedTopology: true, serverApi: ServerApiVersion.v1 }
 // { useNewUrlParser: true, useCreateIndex: true}
-const uri = "mongodb+srv://user123:user123@blogcluster.3vpmtz2.mongodb.net/?retryWrites=true&w=majority";
+const uri="mongodb+srv://user123:user123@blogcms.xvb1lfv.mongodb.net/?retryWrites=true&w=majority";
 
-mongoose.connect(uri, { useNewUrlParser: true, useUnifiedTopology: true }, function(error) {
+
+// mongoose.connect(uri, function(error) {
+//     console.log('db not connecting');
+//   });
+  try {
+    await mongoose.connect(uri);
+  } catch (error) {
     console.log(error.message);
+  }
+
+  mongoose.connection.on('error', err => {
+    console.log(err.message);
   });
 
 dotevn.config();
@@ -27,7 +37,7 @@ app.use(cors());
 app.use(express.json());
 
 //blog routes
-app.use('/blog', blogRouter);
+app.use('/blog', blogPostRouter);
 //role routes
 app.use('/role', roleRouter);
 //permission routes

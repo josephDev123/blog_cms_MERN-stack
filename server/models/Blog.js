@@ -8,4 +8,4 @@ const blogSchema = mongoose.Schema({
     'category':String
 })
 
-export const Blog = mongoose.model('Blog', blogSchema);
+export const Post = mongoose.model('Post', blogSchema);
