@@ -3,6 +3,7 @@ import cors from "cors";
 import dotevn from 'dotenv';
 import mongoose from 'mongoose';
 
+dotevn.config();
 
 //blog module
 import blogPostRouter from './routes/blogPostRouter.js';
@@ -12,23 +13,18 @@ import {roleRouter} from './routes/roleRouter.js';
 import {permissionRouter} from './routes/permissionRouter.js'
 //{ useNewUrlParser: true, useUnifiedTopology: true, serverApi: ServerApiVersion.v1 }
 // { useNewUrlParser: true, useCreateIndex: true}
-const uri="mongodb+srv://user123:user123@blogcms.xvb1lfv.mongodb.net/?retryWrites=true&w=majority";
+const URL= process.env.MONGO_ATLAS_URL;
+ 
+  
+mongoose.connect(URL, {useNewUrlParser: true,  useUnifiedTopology: true})
 
+mongoose.connection.on("error", function(error) {
+  console.log(error)
+})
 
-// mongoose.connect(uri, function(error) {
-//     console.log('db not connecting');
-//   });
-  try {
-    await mongoose.connect(uri);
-  } catch (error) {
-    console.log(error.message);
-  }
-
-  mongoose.connection.on('error', err => {
-    console.log(err.message);
-  });
-
-dotevn.config();
+mongoose.connection.on("open", function() {
+  console.log("Connected to MongoDB database.")
+})
 
 const PORT = process.env.PORT;
 
@@ -49,6 +45,5 @@ app.use('*', (req, res)=>{
 });
 
 app.listen(PORT, ()=>{
-    console.log(   `server running on port ${PORT}`)
+    console.log(`server running on port ${PORT}`)
 })
-
