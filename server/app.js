@@ -39,7 +39,7 @@ app.use('/role', roleRouter);
 //permission routes
 app.use('/permission', permissionRouter);
 //any routes that does not exist
-app.use('*', (req, res)=>{
+app.all('*', (req, res)=>{
     res.json({'message':'this url is not on our routes'})
     // res.end();
 });
