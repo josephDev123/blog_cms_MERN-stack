@@ -6,6 +6,6 @@ const blogSchema = mongoose.Schema({
     'image_link':String,
     'content':String,
     'category':String
-})
+},  { timestamps: true })
 
 export const Post = mongoose.model('Post', blogSchema);

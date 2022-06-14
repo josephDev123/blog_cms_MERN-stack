@@ -4,15 +4,15 @@ export const AddBlog = (req, res)=>{
    const post = req.body;
   
     const createPost = new Post({
-        creator:'joseph',
-        // 'title':post.title,
-        // 'image_link':'',
-        // 'content':post.content,
-        // 'category':post.categories
+        creator:post.creator,
+        title:post.title,
+        image_link:'hjv dbdxvddvxvv xdb xcbcxkj',
+        content:post.content,
+        category:post.categories
     })
 
     createPost.save(error=>{
-        return error ? res.json({'message': 'post submitted successfully'}):res.json({'message': 'post submitted not successfully'})
+        return error ? res.json({'message': 'Post fails'}):res.json({'message': 'post submitted successfully'})
        
     })   
 

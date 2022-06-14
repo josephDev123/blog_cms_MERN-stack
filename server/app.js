@@ -11,8 +11,7 @@ import blogPostRouter from './routes/blogPostRouter.js';
 import {roleRouter} from './routes/roleRouter.js';
 //permission module
 import {permissionRouter} from './routes/permissionRouter.js'
-//{ useNewUrlParser: true, useUnifiedTopology: true, serverApi: ServerApiVersion.v1 }
-// { useNewUrlParser: true, useCreateIndex: true}
+
 const URL= process.env.MONGO_ATLAS_URL;
  
   
