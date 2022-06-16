@@ -6,7 +6,7 @@ export const AddBlog = (req, res)=>{
     const createPost = new Post({
         creator:post.creator,
         title:post.title,
-        image_link:'hjv dbdxvddvxvv xdb xcbcxkj',
+        image_link:post.image_link,
         content:post.content,
         category:post.categories
     })
