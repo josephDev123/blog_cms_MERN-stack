@@ -18,6 +18,11 @@ export const AddBlog = (req, res)=>{
 
 }
 
+export const GetPostCreatedByMe = (req, res)=>{
+    const param = req.params.id;
+    return res.json(param)
+}
+
 export const editBlog = (req, res)=>{
     res.json('edit post')
 }
