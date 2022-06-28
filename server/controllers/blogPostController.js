@@ -19,8 +19,10 @@ export const AddBlog = (req, res)=>{
 }
 
 export const GetPostCreatedByMe = (req, res)=>{
-    const param = req.params.id;
-    return res.json(param)
+    const param = req.params.creator;
+    console.log(param);
+    return res.json({auth:param});
+ 
 }
 
 export const editBlog = (req, res)=>{
