@@ -20,13 +20,16 @@ export const AddBlog = (req, res)=>{
 
 export const GetPostCreatedByMe = (req, res)=>{
     const param = req.params.creator;
-    console.log(param);
-    return res.json({auth:param});
+   Post.find({'creator':param}, (err, resp)=>{
+    if(err) throw new Error('Could not fetch your post data')
+    return res.json(resp);
+   })
+  
  
 }
 
 export const editBlog = (req, res)=>{
-    res.json('edit post')
+    res.json('edit post');
 }
  
 export const allPost = (req, res)=>{
