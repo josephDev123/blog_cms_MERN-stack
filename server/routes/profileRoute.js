@@ -3,4 +3,4 @@ import { profile_post } from "../controllers/profileController.js";
 
 export const profileRouter = express.Router();
 
-profileRouter.get('/edit-profile', profile_post);
+profileRouter.post('/edit-profile', profile_post);

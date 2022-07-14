@@ -40,7 +40,7 @@ app.use('/role', roleRouter);
 app.use('/permission', permissionRouter);
 
 //profile route
-app.use('/profiles', profileRouter);
+app.use('/profile', profileRouter);
 
 //any routes that does not exist
 app.all('*', (req, res)=>{

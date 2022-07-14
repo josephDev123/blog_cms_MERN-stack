@@ -8,30 +8,29 @@ const profileSchema = new mongoose.Schema({
     },
     name:{
         type:String,
-        required:true,
-        minlength:30,
+        required:false,
+        minlength:30
     },
     title:{
         type:String,
-        required:true,
-        minlength:30,
-
+        required:false,
+        minlength:30
     },
 
     about:{
         type:String,
-        required:true,
-        minlength:100,
+        required:false,
+        minlength:100
     },
 
     phone:{
         type:Number,
-        required:true,
+        required:false
     },
 
     surname:{
         type:String,
-        required:true,
+        required:false
     }
 
 
