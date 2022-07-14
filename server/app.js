@@ -7,10 +7,11 @@ dotevn.config();
 
 //blog module
 import blogPostRouter from './routes/blogPostRouter.js';
-//role module
 import {roleRouter} from './routes/roleRouter.js';
-//permission module
 import {permissionRouter} from './routes/permissionRouter.js'
+
+//profile module
+import {profileRouter} from './routes/profileRoute.js';
 
 const URL= process.env.MONGO_ATLAS_URL;
  
@@ -18,7 +19,7 @@ const URL= process.env.MONGO_ATLAS_URL;
 mongoose.connect(URL, {useNewUrlParser: true,  useUnifiedTopology: true})
 
 mongoose.connection.on("error", function(error) {
-  console.log(error)
+  console.log('error')
 })
 
 mongoose.connection.on("open", function() {
@@ -33,10 +34,14 @@ app.use(express.json());
 
 //blog routes
 app.use('/blog', blogPostRouter);
-//role routes
+
 app.use('/role', roleRouter);
-//permission routes
+
 app.use('/permission', permissionRouter);
+
+//profile route
+app.use('/profiles', profileRouter);
+
 //any routes that does not exist
 app.all('*', (req, res)=>{
     res.json({'message':'this url is not on our routes'})
