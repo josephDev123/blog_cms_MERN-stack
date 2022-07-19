@@ -9,18 +9,18 @@ const profileSchema = new mongoose.Schema({
     name:{
         type:String,
         required:false,
-        minlength:30
+        maxlength:30
     },
     title:{
         type:String,
         required:false,
-        minlength:30
+        maxlength:30
     },
 
     about:{
         type:String,
         required:false,
-        minlength:100
+        maxlength:100
     },
 
     phone:{

@@ -1,6 +1,7 @@
 import express  from "express";
-import { profile_post } from "../controllers/profileController.js";
+import { profile_post, hanldeProfileCount } from "../controllers/profileController.js";
 
 export const profileRouter = express.Router();
 
-profileRouter.post('/edit-profile', profile_post);
+profileRouter.post('/upload-profile', profile_post);
+profileRouter.get('/profile-count', hanldeProfileCount);

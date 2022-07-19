@@ -42,6 +42,8 @@ app.use('/permission', permissionRouter);
 //profile route
 app.use('/profile', profileRouter);
 
+
+
 //any routes that does not exist
 app.all('*', (req, res)=>{
     res.json({'message':'this url is not on our routes'})
