@@ -1,9 +1,12 @@
 import { profileModel } from "../models/Profile.js";
 
+
+// handle profile posting
 export const profile_post =  (req, res)=>{
-        const { names,title,about,phone,surname} = req.body;
+        const { isAuthUser, names,title,about,phone,surname} = req.body;
 
       const uploadedProfile= new profileModel({
+            postedBy:isAuthUser,
             name:names,
             title:title,
             about:about,
@@ -21,7 +24,7 @@ export const profile_post =  (req, res)=>{
         
 }
 
-//handle the number doc is in the collection
+//handle the number doc is in the profile collection
 export const handleProfileCount =(req, res)=>{
         profileModel.countDocuments({}, (error, count)=>{
                 if(error) {
@@ -32,4 +35,12 @@ export const handleProfileCount =(req, res)=>{
                 }
           
         })
+}
+
+// handle fetching all the profile
+
+export const userProfile = (req, res)=>{
+        const query = req.params;
+        res.json({query});
+        console.log(query);
 }
